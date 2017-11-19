@@ -1,0 +1,29 @@
+h3 {
+    position: relative;
+    display: inline-block;
+    padding-top: 35px;
+    opacity: 1;
+
+    &.faded {
+        opacity: 0;
+        right: 0;
+    }
+
+    &:before {
+        @include ease(all, .55s);
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        width: 50%;
+        height: 4px;
+        background: $blue;
+    }
+
+    &.faded:before {
+        width: 0%;
+    }
+}
+
+$bezier:(
+    elastic: cubic-bezier(0.155, 0.485, 0.325, 1.2)
+);

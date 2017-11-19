@@ -1,0 +1,75 @@
+#hero-section {
+    @include bgSize();
+    position: relative;
+    height: 100%;
+    min-height: 650px;
+    background-image: url('../images/chicago.jpg');
+
+    &:before {
+        @include absolute((top:0, left:0));
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,.85);
+    }
+
+    .hero-text {
+        padding-top: 200px;
+
+        h1, h2 {
+            @include bezier(all, .5s, '0.68, -0.55, 0.265, 1.55');
+            @include relative((top:0, right:0));
+        }
+
+        h2 {
+            @include bezier(all, .5s, '0.68, -0.55, 0.265, 1.55', .5s);
+            margin-bottom: 25px;
+            color: $white;
+        }
+
+        h1.faded {
+            top: 20px;
+        }
+
+        h2.faded {
+            right: 60px;
+        }
+    }
+
+    p {
+        @include ease(all, .45s, 1.5s);
+        color: $white;
+        position: relative;
+        top: 0;
+    }
+
+    .scroll-arrow {
+        @include ease(all, .45s, 1.5s);
+        display: inline-block;
+        padding-top: 50px;
+        position: relative;
+        top: 0;
+
+        &:hover {
+
+            img {
+                top: 5px;
+            }
+        }
+
+        img {
+            @include bezier(top, .15s, '0.155, 0.485, .325, 1.9');
+            width: 25px;
+            position: relative;
+            top: 0;
+        }
+    }
+}
+
+
+#about,
+#portfolio,
+#contact {
+    position: relative;
+    visibility: visible;
+}

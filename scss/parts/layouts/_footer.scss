@@ -1,0 +1,159 @@
+footer {
+    padding: 55px 0;
+    background: $white;
+
+    h3 {
+        display: block;
+        text-align: left;
+        color: $red;
+        padding: 0px;
+        margin-bottom: 35px;
+        &:before {
+            display: none;
+        }
+    }
+
+    .social-links {
+        display: none;
+    }
+
+    // .social-links {
+    //     display: inline-block;
+    //     margin-bottom: 25px;
+    //     margin-right: 50px;
+    //
+    //     li {
+    //         display: inline-block;
+    //         vertical-align: middle;
+    //         margin-right: 10px;
+    //         &:last-child {
+    //             margin-right: 0px;
+    //         }
+    //
+    //         a {
+    //             @include circle(45px);
+    //             display: inline-block;
+    //             font-size: em(25);
+    //             color: shade(gray, dark);
+    //             border: 2px solid shade(gray, dark);
+    //             position: relative;
+    //
+    //             i {
+    //                 @include center(both);
+    //                 color: inherit;
+    //             }
+    //         }
+    //
+    //         &:hover {
+    //
+    //             a {
+    //                 color: $white;
+    //                 background: shade(gray, dark);
+    //             }
+    //         }
+    //     }
+    // }
+
+    .email {
+        @include font(reg, 14, $gray, 16, null, uppercase);
+        letter-spacing: track(100);
+        display: inline-block;
+        padding-left: 20px;
+        margin-right: 50px;
+        margin-bottom: 35px;
+        position: relative;
+        &:before {
+            @include ease;
+            @include center(top);
+            content: "\f0e0";
+            font-family: 'FontAwesome';
+            font-size: 13px;
+            left: 0px;
+        }
+        &:hover {
+            color: shade(gray, dark);
+
+            &:before {
+                left: -7px;
+            }
+        }
+    }
+
+    small {
+        display: inline-block;
+        font-size: em(15);
+        margin-bottom: 35px;
+    }
+
+    .social-links-alt {
+        display: inline-block;
+        margin-right: 50px;
+        margin-bottom: 35px;
+
+        li {
+            @include font(reg, 16, shade(gray, dark), 25, null);
+            letter-spacing: track(25);
+            display: inline-block;
+            margin-right: 15px;
+
+            &:after {
+                @include ease;
+                content: "";
+                display: block;
+                width: 0%;
+                height: 2px;
+                background: $gray;
+                margin: auto;
+            }
+
+            &:hover {
+
+                &:after {
+                    width: 100%;
+                }
+            }
+
+            &#facebook:hover {
+                color: $facebook;
+
+                &:after {
+                    background: $facebook;
+                }
+            }
+
+            &#twitter:hover {
+                color: $twitter;
+
+                &:after {
+                    background: $twitter;
+                }
+            }
+
+            &#linkedin:hover {
+                color: $linkedin;
+
+                &:after {
+                    background: $linkedin;
+                }
+            }
+
+            &#instagram:hover {
+                color: $red;
+
+                &:after {
+                    background: $red;
+                }
+            }
+        }
+    }
+
+    @include breakpoint(phablet){
+
+        .social-links-alt,
+        .email,
+        small {
+            display: block;
+            margin-right: 0px;
+        }
+    }
+}

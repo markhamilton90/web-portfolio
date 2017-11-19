@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,900');
+
+$source-sans-pro: 'Source Sans Pro', sans-serif;
+$source-sans-pro-list: (light: 300, regular: 400, semibold: 600, bold: 700, boldest: 900 );
+@include declare-fonts($source-sans-pro-list, $source-sans-pro);
+
+
+@font-face {
+    font-family: 'proximanova-light';
+    src: url('../fonts/proximanova/proximanova-light-webfont.woff2') format('woff2'),
+         url('../fonts/proximanova/proximanova-light-webfont.woff') format('woff'),
+         url('../fonts/proximanova/proximanova-light-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'proximanova-regular';
+    src: url('../fonts/proximanova/proximanova-regular-webfont.woff2') format('woff2'),
+         url('../fonts/proximanova/proximanova-regular-webfont.woff') format('woff'),
+         url('../fonts/proximanova/proximanova-regular-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'proximanova-semibold';
+    src: url('../fonts/proximanova/proximanova-semibold-webfont.woff2') format('woff2'),
+         url('../fonts/proximanova/proximanova-semibold-webfont.woff') format('woff'),
+         url('../fonts/proximanova/proximanova-semibold-webfont.ttf') format('truetype');
+}
+
+%light {
+    font-family: 'proximanova-light';
+    font-weight: 200;
+}
+
+%reg {
+    font-family: 'proximanova-regular';
+    font-weight: 400;
+}
+
+%semibold {
+    font-family: 'proximanova-semibold';
+    font-weight: 600;
+}

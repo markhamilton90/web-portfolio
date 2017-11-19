@@ -1,0 +1,114 @@
+header {
+    width: 100%;
+    padding-top: 30px;
+    position: absolute;
+    top: 0px;
+
+    h4 {
+        color: $white;
+    }
+
+    .directory,
+    .cta-contact {
+        @include ease(all, .45s, 1.5s);
+        top: 0;
+        opacity: 1;
+
+        ul {
+            position: absolute;
+            z-index: z(floor);
+            overflow: hidden;
+
+            li {
+                @include font(reg, 18, $white, 26, null, lowercase);
+                letter-spacing: track(100);
+                position: relative;
+                white-space: nowrap;
+
+                a {
+                    display: block;
+                }
+            }
+        }
+
+        &.faded {
+            opacity: 0;
+            top: -15px;
+        }
+    }
+
+    .directory {
+        float: left;
+        position: relative;
+        z-index: z(floor);
+        cursor: pointer;
+
+        &:hover {
+
+            li {
+                left: 0;
+                opacity: 1;
+            }
+        }
+
+        li {
+            left: -100%;
+
+            &:hover {
+                color: $red;
+            }
+
+            &:nth-child(1) {
+                @include ease(left, .1s);
+            }
+
+            &:nth-child(2) {
+                @include ease(left, .2s);
+            }
+
+            &:nth-child(3) {
+                @include ease(left, .3s);
+            }
+        }
+    }
+
+    .cta-contact {
+        float: right;
+        position: relative;
+        z-index: z(floor);
+        cursor: pointer;
+
+        &:hover {
+
+            li {
+                right: 0;
+                opacity: 1;
+            }
+        }
+
+        ul {
+            right: 0px;
+            text-align: right;
+        }
+
+        li {
+            right: -100%;
+
+            &:hover {
+                color: $red;
+            }
+
+            &:nth-child(1) {
+                @include ease(right, .1s);
+            }
+
+            &:nth-child(2) {
+                @include ease(right, .2s);
+            }
+        }
+    }
+}
+
+.site-wrapper {
+    overflow: hidden;
+}

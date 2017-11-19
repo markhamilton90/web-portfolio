@@ -1,0 +1,15 @@
+// initialize project utilities
+@import "support/reset";
+@import "support/breakpoints";
+@import "support/functions";
+@import "support/mixins";
+
+// setup project variables
+@import "base/fontstyles";
+@import "base/colors";
+@import "base/z-index";
+@import "base/base";
+
+// page components
+@import "parts/elements/*";
+@import "parts/layouts/*";
