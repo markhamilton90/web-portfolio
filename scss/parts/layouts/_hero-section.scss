@@ -3,7 +3,7 @@
     position: relative;
     height: 100%;
     min-height: 650px;
-    background-image: url('../images/chicago.png');
+    background-image: url('../images/chicago-hero.jpg');
 
     &:before {
         @include absolute((top:0, left:0));
