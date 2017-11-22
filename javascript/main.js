@@ -11,14 +11,17 @@
 
 jQuery(document).ready(function($){
 
-    $('#hero-section h1').removeClass('faded');
-    $('#hero-section h2').removeClass('faded');
+    $(window).on('load', function() {
 
-    $('header .directory').removeClass('faded');
-    $('header .cta-contact').removeClass('faded');
+        $('#hero-section h1').removeClass('faded');
+        $('#hero-section h2').removeClass('faded');
 
-    $('#hero-section p').removeClass('faded');
-    $('#hero-section .scroll-arrow').removeClass('faded');
+        $('header .directory').removeClass('faded');
+        $('header .cta-contact').removeClass('faded');
+
+        $('#hero-section p').removeClass('faded');
+        $('#hero-section .scroll-arrow').removeClass('faded');
+    });
 
 
 
