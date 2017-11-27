@@ -9,21 +9,19 @@
 
 
 
+jQuery(window).on('load', function() {
+
+    $('#hero-section h1').removeClass('faded');
+    $('#hero-section h2').removeClass('faded');
+
+    $('header .directory').removeClass('faded');
+    $('header .cta-contact').removeClass('faded');
+
+    $('#hero-section p').removeClass('faded');
+    $('#hero-section .scroll-arrow').removeClass('faded');
+});
+
 jQuery(document).ready(function($){
-
-    $(window).on('load', function() {
-
-        $('#hero-section h1').removeClass('faded');
-        $('#hero-section h2').removeClass('faded');
-
-        $('header .directory').removeClass('faded');
-        $('header .cta-contact').removeClass('faded');
-
-        $('#hero-section p').removeClass('faded');
-        $('#hero-section .scroll-arrow').removeClass('faded');
-    });
-
-
 
     $(window).on('load scroll resize', function() {
         var scrollBottom = $(window).scrollTop() + $(window).height();
