@@ -6,6 +6,7 @@
         width: 25%;
         height: 100%;
         background: #eaeaea;
+        z-index: -5;
     }
 
     &:after {
@@ -33,12 +34,30 @@
 
 .portfolio-items {
     max-width: 1050px;
+    width: 90%;
     padding-bottom: 100px;
     margin: 0 auto;
+
+    @include at(laptop){
+        width: 94%;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 0px;
+    }
+
+    @include at(phablet) {
+        padding: 0 20px;
+    }
 }
 
 .portfolio-item {
-    margin-bottom: 200px;
+    @include ease(opacity, .55s);
+    margin-bottom: 130px;
+    opacity: 1;
+
+    &.faded {
+        opacity: 0;
+    }
 
     &:last-child {
         margin-bottom: 0px;
@@ -51,9 +70,9 @@
             left: auto;
             right: 0px;
 
-            &.faded {
-                right: -50px;
-            }
+            // &.faded {
+            //     right: -50px;
+            // }
         }
 
         .content {
@@ -61,15 +80,16 @@
             left: 0px;
             right: auto;
 
-            &.faded {
-                left: -50px;
-            }
+            // &.faded {
+            //     left: -50px;
+            // }
         }
     }
 
     .screenshot {
-        @include ease(all, .55s);
+        @include ease(opacity, .55s);
         position: relative;
+        z-index: auto;
         left: 0px;
         float: left;
         width: 45%;
@@ -77,8 +97,12 @@
         max-height: 240px;
         overflow: auto;
 
-        &.faded {
-            left: -50px;
+        // &.faded {
+        //     left: -50px;
+        // }
+
+        &.no-scroll {
+            overflow: hidden;
         }
 
         img {
@@ -89,15 +113,15 @@
     }
 
     .content {
-        @include ease(all, .55s);
+        @include ease(opacity, .55s);
         position: relative;
         right: 0px;
         float: right;
         width: 50%;
 
-        &.faded {
-            right: -50px;
-        }
+        // &.faded {
+        //     right: -50px;
+        // }
 
         h4 {
             @include font(reg, 50, shade(gray, medium), 50, 10, capitalize);
@@ -108,6 +132,57 @@
 
         p {
             @include font(reg, 18, shade(gray, dark), 26, 25);
+        }
+    }
+
+    @include at(desktop){
+
+        .content {
+
+            h4 {
+                font-size: em(40);
+            }
+        }
+    }
+
+    @include at(laptop){
+        margin-bottom: 100px;
+
+        .screenshot,
+        .content,
+        &.img-right .screenshot,
+        &.img-right .content {
+            float: none;
+            width: 90%;
+        }
+
+        .screenshot {
+            margin-bottom: 35px;
+        }
+
+        .content {
+
+            h4 {
+                font-size: em(30);
+            }
+        }
+    }
+
+    @include at(phablet){
+        margin-bottom: 70px;
+
+        .screenshot,
+        .content,
+        &.img-right .screenshot,
+        &.img-right .content {
+            width: 100%;
+        }
+    }
+
+    @include at(phablet){
+
+        .screenshot {
+            max-height: 200px;
         }
     }
 }

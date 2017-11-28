@@ -28,7 +28,16 @@ jQuery(document).ready(function($){
         $('.faded').each(function() {
             if ( ($(this).offset().top + 300 ) < scrollBottom ) {
                 $(this).removeClass('faded');
+
+                //screenshots only
+                if ($(this).find('.screenshot').hasClass('no-scroll')) {
+                    $(this).on('transitionend', function() {
+                        console.log('end');
+                        $(this).find('.screenshot').removeClass('no-scroll');
+                    });
+                }
             }
+
         });
     });
 

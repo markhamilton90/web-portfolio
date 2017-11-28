@@ -81,7 +81,6 @@ footer {
 
     small {
         display: inline-block;
-        font-size: em(15);
         margin-bottom: 35px;
     }
 
@@ -147,13 +146,30 @@ footer {
         }
     }
 
-    @include breakpoint(phablet){
+    @include at(phablet){
 
         .social-links-alt,
         .email,
         small {
             display: block;
             margin-right: 0px;
+        }
+    }
+
+    @include at(phone){
+        padding-bottom: 25px;
+
+        .social-links-alt {
+
+            li {
+                display: block;
+                margin-right: 0px;
+                margin-bottom: 10px;
+
+                &:after {
+                    display: none;
+                }
+            }
         }
     }
 }

@@ -10,14 +10,6 @@ body {
     background: $background;
     position: relative;
     height: 100%;
-
-    // &:before {
-    //     @include absolute((top:0, left:0));
-    //     content: "";
-    //     width: 25%;
-    //     height: 100%;
-    //     background: #eaeaea;
-    // }
 }
 
 .clr:after {
@@ -76,14 +68,29 @@ h1, h2, h3, h4, h5, h6, p {
 
 h1 {
     @include font(semibold, 80, $blue, 70, 5px);
+    @include at(tablet) {
+        font-size: em(60);
+    }
 }
 
 h2 {
     @include font(bold, 40, shade(gray, dark), 45, 25, uppercase);
+    @include at(tablet) {
+        font-size: em(35);
+    }
+    @include at(phablet) {
+        font-size: em(30);
+    }
 }
 
 h3 {
     @include font(semibold, 55, $blue, 60);
+    @include at(tablet) {
+        font-size: em(45);
+    }
+    @include at(phone) {
+        font-size: em(40);
+    }
 }
 
 h4 {
@@ -102,7 +109,11 @@ h6 {
 }
 
 p {
-    @include font(reg, 22, shade(gray, medium), 22, 20);
+    @include font(reg, 22, shade(gray, medium), 28, 20);
+    @include at(tablet) {
+        font-size: em(18);
+        line-height: 25px;
+    }
 }
 
 a {
@@ -113,5 +124,5 @@ a {
 }
 
 small {
-    @include font(reg, 16, shade(gray, medium));
+    @include font(reg, 15, shade(gray, medium), 20);
 }

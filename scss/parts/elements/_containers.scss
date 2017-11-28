@@ -6,6 +6,9 @@
     &.small {
         max-width: 1050px;
         padding: 0 50px;
+        @include at(phablet) {
+            padding: 0 20px;
+        }
     }
 }
 
