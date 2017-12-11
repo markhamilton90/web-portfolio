@@ -107,8 +107,25 @@ header {
             }
         }
     }
-}
 
-.site-wrapper {
-    overflow: hidden;
+    @include at(phablet) {
+        position: static;
+
+        .cta-contact {
+            display: none;
+        }
+
+        .directory {
+
+            ul {
+                display: none;
+                position: static;
+                margin-bottom: -50px;
+
+                li {
+                    left: 0px;
+                }
+            }
+        }
+    }
 }

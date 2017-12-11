@@ -16,15 +16,24 @@
     .hero-text {
         padding-top: 200px;
 
-        h1, h2 {
-            @include bezier(all, .5s, '0.68, -0.55, 0.265, 1.55');
-            @include relative((top:0, right:0));
+        h1 {
+            @include ease;
+            @include relative((top:0));
+
+            &.bezier {
+                @include bezier(all, .5s, '0.68, -0.55, 0.265, 1.55');
+            }
         }
 
         h2 {
-            @include bezier(all, .5s, '0.68, -0.55, 0.265, 1.55', .5s);
+            @include ease;
+            @include relative((right:0));
             margin-bottom: 25px;
             color: $white;
+
+            &.bezier {
+                @include bezier(all, .5s, '0.68, -0.55, 0.265, 1.55', .5s);
+            }
         }
 
         h1.faded {
@@ -37,7 +46,7 @@
     }
 
     p {
-        @include ease(all, .45s, 1.5s);
+        @include ease((top opacity), .45s, 1.5s);
         color: $white;
         position: relative;
         top: 0;
@@ -62,6 +71,16 @@
             width: 25px;
             position: relative;
             top: 0;
+        }
+    }
+
+    @include at(phablet) {
+        height: auto;
+        min-height: auto;
+        padding-bottom: 70px;
+
+        .hero-text {
+            padding-top: 100px;
         }
     }
 }

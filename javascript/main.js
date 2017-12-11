@@ -14,6 +14,14 @@ jQuery(window).on('load', function() {
     $('#hero-section h1').removeClass('faded');
     $('#hero-section h2').removeClass('faded');
 
+    $('#hero-section h1').on('transitionend', function() {
+        $(this).removeClass('bezier');
+    });
+
+    $('#hero-section h2').on('transitionend', function() {
+        $(this).removeClass('bezier');
+    });
+
     $('header .directory').removeClass('faded');
     $('header .cta-contact').removeClass('faded');
 
@@ -32,7 +40,6 @@ jQuery(document).ready(function($){
                 //screenshots only
                 if ($(this).find('.screenshot').hasClass('no-scroll')) {
                     $(this).on('transitionend', function() {
-                        console.log('end');
                         $(this).find('.screenshot').removeClass('no-scroll');
                     });
                 }
@@ -41,6 +48,34 @@ jQuery(document).ready(function($){
         });
     });
 
+    $('.directory h4').on('click', function() {
+        if ( $(window).width() <= 600 ) {
+            if ( $('.directory h4').hasClass('toggled') ) {
+                $('.directory h4').removeClass('toggled');
+                $('.directory ul').slideUp(300);
+            } else {
+                $('.directory h4').addClass('toggled');
+                $('.directory ul').slideDown(300);
+            }
+        }
+    });
+
+    $('.directory li').on('click', function() {
+        if ( $(window).width() <= 600 ) {
+            $('.directory ul').slideUp(300);
+        }
+    });
+
+    $(window).on('resize', function() {
+        if ( $(window).width() > 600 ) {
+            if ( $('.directory ul')[0].hasAttribute('style') ) {
+                $('.directory ul').removeAttr('style');
+            }
+            if ( $('.directory h4').hasClass('toggled') ) {
+                $('.directory h4').removeClass('toggled');
+            }
+        }
+    });
 
     //▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
     // _SmoothScroll

@@ -63,7 +63,7 @@
         margin-bottom: 0px;
     }
 
-    &.img-right {
+    &:nth-child(even) {
 
         .screenshot {
             float: right;
@@ -150,8 +150,8 @@
 
         .screenshot,
         .content,
-        &.img-right .screenshot,
-        &.img-right .content {
+        &:nth-child(even) .screenshot,
+        &:nth-child(even) .content {
             float: none;
             width: 90%;
         }
@@ -173,8 +173,8 @@
 
         .screenshot,
         .content,
-        &.img-right .screenshot,
-        &.img-right .content {
+        &:nth-child(even) .screenshot,
+        &:nth-child(even) .content {
             width: 100%;
         }
     }

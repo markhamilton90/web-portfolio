@@ -21,13 +21,13 @@
 
     .content-right {
         @include ease(all, .55s);
-        @include relative((bottom:0px));
+        @include relative((right:0px));
         max-width: 700px;
         margin-left: auto;
 
         &.faded {
-            //right: -50px;
-            bottom: -50px;
+            right: -50px;
+            //bottom: -50px;
         }
 
         p {

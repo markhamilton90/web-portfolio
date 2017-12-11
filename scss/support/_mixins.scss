@@ -541,11 +541,63 @@
 // ∟Ease
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-@mixin ease($property:all, $duration:0.2s, $delay:0s){
-  -webkit-transition: $property $duration ease-in-out $delay;
-  -moz-transition: $property $duration ease-in-out $delay;
-  -o-transition: $property $duration ease-in-out $delay;
-  transition: $property $duration ease-in-out $delay;
+@mixin ease($property:all, $duration:0.2s, $type:ease, $delay:0s){
+    $value:undefined;
+
+    @if(type-of($property) == string){
+        $value: $property $duration $type;
+    }
+
+    @else if(type-of($property) == list){
+        $array:undefined;
+
+        @each $attr in $property{
+            $array:if($array != undefined, $array, null);
+            $array: $array, $attr $duration $type;
+        }
+
+        $value:$array;
+    }
+
+    @else{
+        $type:if(type-of($duration) == string, null, $type);
+        $array:undefined;
+
+        @each $attr, $time in $property{
+            $array:if($array != undefined, $array, null);
+            $seconds:undefined;
+            $ease:undefined;
+
+            @if(type-of($time) == string){
+                $seconds:$duration;
+                $ease:$time;
+            }
+            @else if(type-of($time) == number){
+                $seconds:$time;
+                $ease:$type;
+            }
+
+            @else if(type-of($time) == list){
+                @if(type-of(nth($time,1)) == number and type-of(nth($time,2)) == number){
+                    $seconds:nth($time, 1) nth($time, 2);
+                    $ease:$type;
+                }
+                @else{
+                    $seconds:nth($time, 1);
+                    $ease:nth($time,2);
+                }
+            }
+
+            $array: $array, $attr $seconds $ease;
+        }
+
+        $value:$array;
+    }
+
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -o-transition: $value;
+    transition: $value;
 }
 
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
