@@ -27,16 +27,16 @@ $source-sans-pro-list: (light: 300, regular: 400, semibold: 600, bold: 700, bold
 }
 
 %light {
-    font-family: 'proximanova-light';
+    font-family: 'proximanova-light', 'Helvetica Neue', Helvetica, sans-serif;
     font-weight: 200;
 }
 
 %reg {
-    font-family: 'proximanova-regular';
+    font-family: 'proximanova-regular', 'Helvetica Neue', Helvetica, sans-serif;
     font-weight: 400;
 }
 
 %semibold {
-    font-family: 'proximanova-semibold';
+    font-family: 'proximanova-semibold', 'Helvetica Neue', Helvetica, sans-serif;
     font-weight: 600;
 }
