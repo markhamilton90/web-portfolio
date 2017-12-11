@@ -31,7 +31,22 @@ jQuery(window).on('load', function() {
 
 jQuery(document).ready(function($){
 
-    $(window).on('load scroll resize', function() {
+    var scrollBottom = $(window).scrollTop() + $(window).height();
+    $('.faded').each(function() {
+        if ( ($(this).offset().top + 300 ) < scrollBottom ) {
+            $(this).removeClass('faded');
+
+            //screenshots only
+            if ($(this).find('.screenshot').hasClass('no-scroll')) {
+                $(this).on('transitionend', function() {
+                    $(this).find('.screenshot').removeClass('no-scroll');
+                });
+            }
+        }
+
+    });
+
+    $(window).on('scroll resize', function() {
         var scrollBottom = $(window).scrollTop() + $(window).height();
         $('.faded').each(function() {
             if ( ($(this).offset().top + 300 ) < scrollBottom ) {
