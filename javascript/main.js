@@ -7,12 +7,19 @@
 //
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-
-
 jQuery(window).on('load', function() {
 
-    $('#hero-section h1').removeClass('faded');
-    $('#hero-section h2').removeClass('faded');
+    $('#hero-section h1').removeClass('hero-faded');
+    $('#hero-section h2').removeClass('hero-faded');
+
+    $('header .directory').removeClass('hero-faded');
+    $('header .cta-contact').removeClass('hero-faded');
+
+    $('#hero-section p').removeClass('hero-faded');
+    $('#hero-section .scroll-arrow').removeClass('hero-faded');
+});
+
+jQuery(document).ready(function($){
 
     $('#hero-section h1').on('transitionend', function() {
         $(this).removeClass('bezier');
@@ -21,15 +28,6 @@ jQuery(window).on('load', function() {
     $('#hero-section h2').on('transitionend', function() {
         $(this).removeClass('bezier');
     });
-
-    $('header .directory').removeClass('faded');
-    $('header .cta-contact').removeClass('faded');
-
-    $('#hero-section p').removeClass('faded');
-    $('#hero-section .scroll-arrow').removeClass('faded');
-});
-
-jQuery(document).ready(function($){
 
     $(window).on('scroll resize', function() {
         var scrollBottom = $(window).scrollTop() + $(window).height();

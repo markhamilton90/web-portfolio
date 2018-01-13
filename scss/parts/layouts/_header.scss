@@ -31,7 +31,8 @@ header {
             }
         }
 
-        &.faded {
+        &.faded,
+        &.hero-faded {
             opacity: 0;
             top: -15px;
         }

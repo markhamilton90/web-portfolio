@@ -12,7 +12,8 @@
     }
 }
 
-.faded {
+.faded,
+.hero-faded {
     opacity: 0;
 
     &.descend {
@@ -41,7 +42,7 @@
 }
 
 #hero-section {
-    .faded.descend {
+    .hero-faded.descend {
         top: -15px;
     }
 }
